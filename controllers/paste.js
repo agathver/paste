@@ -1,7 +1,12 @@
 const Paste = require('../models/paste');
 
 function newPaste(req, res) {
-    res.render('new_paste');
+
+    res.render('new_paste', { csrf: req.csrfToken() });
+}
+
+function showRedirect(req, res) {
+    res.redirect('/paste/' + req.query.id);
 }
 
 async function savePaste(req, res, next) {
@@ -37,5 +42,6 @@ async function showPaste(req, res, next) {
 module.exports = {
     newPaste,
     showPaste,
-    savePaste
+    savePaste,
+    showRedirect
 }

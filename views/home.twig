@@ -3,17 +3,17 @@
 {% block title %}Paste{% endblock %}
 
 {% block body %}
-<main class="container home py-5">
-    <form>
-        <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Message ID">
-            <div class="input-group-append">
-                <button class="btn btn-primary" type="submit">View</button>
+    <main class="container home py-5">
+        <form method="GET" action="/paste/show">
+            <div class="input-group mb-3">
+                <input name="id" type="text" class="form-control" placeholder="Message ID">
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="submit">View</button>
+                </div>
             </div>
-        </div>
+        </form>
         <p class="text-center">
             <a class="btn btn-primary" href="paste/new">Post your own!</a>
         </p>
-    </form>
-</main>
+    </main>
 {% endblock %}

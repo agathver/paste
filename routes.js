@@ -7,6 +7,7 @@ const router = express.Router();
 
 router
     .get('/', home.index)
+    .get('/paste/show', paste.showRedirect)
     .get('/paste/new', paste.newPaste)
     .get('/paste/:id', paste.showPaste)
     .post('/paste', paste.savePaste);

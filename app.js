@@ -1,10 +1,12 @@
-const config = require('./config');
+require('dotenv').config();
+const csrf = require('csurf');
+const cookieParser = require('cookie-parser');
 const express = require('express');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
-const util = require('util');
 const twig = require('twig');
 
+const config = require('./config');
 const routes = require('./routes');
 
 const app = express();
@@ -23,8 +25,12 @@ app.set('view engine', 'twig');
 const logger = config.production ? morgan('combined') : morgan('dev');
 
 app.use(logger);
+
+app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json())
+
+app.use(csrf({ cookie: true }));
 
 app.use('/', routes);
 app.use(express.static(__dirname + '/public'));

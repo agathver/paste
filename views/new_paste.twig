@@ -3,17 +3,18 @@
 {% block title %}Paste{% endblock %}
 
 {% block body %}
-<main class="container new_paste py-5">
-    <form method="POST" action="../paste">
-        <div class="form-group">
-            <input name="title" type="text" class="form-control" placeholder="Untitled document" />
-        </div>
-        <div class="form-group">
-            <textarea name="content" class="form-control" rows="15"></textarea>
-        </div>
-        <div class="form-group">
-            <button class="btn btn-success">Save</button>
-        </div>
-    </form>
-</main>
+    <main class="container new_paste py-5">
+        <form method="POST" action="../paste">
+            <input type="hidden" name="_csrf" value="{{ csrf }}"/>
+            <div class="form-group">
+                <input name="title" type="text" class="form-control" placeholder="Untitled document"/>
+            </div>
+            <div class="form-group">
+                <textarea name="content" class="form-control" rows="15"></textarea>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-success">Save</button>
+            </div>
+        </form>
+    </main>
 {% endblock %}
