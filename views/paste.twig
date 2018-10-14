@@ -1,0 +1,17 @@
+{% extends '_layouts/base.twig' %}
+
+{% block title %}Paste - {{ paste.title }}{% endblock %}
+
+{% block body %}
+<main class="container new_paste py-5">
+    <article>
+        <h1 class="display-4">{{ paste.title }}</h1>
+        <div class="text-muted">
+            <div class="date-time">{{ paste.createdAt }}</div>
+            <div>{{ paste._id }}</div>
+        </div>
+
+        <pre class="my-4">{{ paste.content }}</pre>
+    </atricle>
+</main>
+{% endblock %}
